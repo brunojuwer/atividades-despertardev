@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 2</title>
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: gray;
+    }
+
+    main {
+      position: relative;
+      height: 100vh;
+    }
+
+    .position-a {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+    }
+
+    .top-right {
+      background-color: #000;
+      top: 0;
+      right: 0;
+    }
+
+    .top-left {
+      background-color: #000;
+      top: 0;
+      left: 0;
+    }
+
+    .bottom-left {
+      background-color: #000;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bottom-right {
+      background-color: #000;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+    <header id="main-header">
+      <a href="../../index.html">HOME</a>
+      <nav style="display: flex; justify-content: center; gap: 1rem;">
+        <a style="color: #FFF;" href="./exercicio1.html">Exercício 1</a>
+        <a style="color: #FFF;" href="./exercicio2.html">Exercício 2</a>
+        <a style="color: #FFF;" href="./exercicio3.html">Exercício 3</a>
+        <a style="color: #FFF;" href="./exercicio4.html">Exercício 4</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="top-left position-a"></div>
+      <div class="top-right position-a"></div>
+      <div class="bottom-left position-a"></div>
+      <div class="bottom-right position-a"></div>
+    </main>
+</body>
+
+</html>
