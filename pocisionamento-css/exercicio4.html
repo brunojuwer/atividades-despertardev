@@ -15,33 +15,30 @@
 
     div {
       background-color: rgb(33, 33, 33);
-      width: 150px;
-      height: 150px;
-      margin: 5px;
+      width: 9.375rem;
+      height: 9.375rem;
+      margin: .3125rem;
+      display: inline-block;
     }
 
     .float-left {
       float: left;
     }
 
-    .top-left-one {
-      display: inline-block;
+    .float-right {
+      float: right;
     }
 
     .clear-float {
       clear: both;
-      display: inline-block;
     }
-    
-
-    
   </style>
 </head>
 
 <body>
   <header id="main-header">
     <a href="../index.html">HOME</a>
-    <nav style="display: flex; justify-content: center; gap: 1rem;">
+    <nav style="display: flex; justify-content: center; gap: 16px;">
       <a style="color: #FFF;" href="./exercicio1.html">Exercício 1</a>
       <a style="color: #FFF;" href="./exercicio2.html">Exercício 2</a>
       <a style="color: #FFF;" href="./exercicio3.html">Exercício 3</a>
@@ -49,21 +46,18 @@
     </nav>
   </header>
 
-  <main>
-    <div class="float-left"></div>
-    <div class="float-left"></div>
-    <div class="float-left"></div>
-    <div class="clear-float"></div>
-    <div class="clear-float"></div>
-    <div class="clear-float"></div>
-    <div class=""></div>
-    <div class=""></div>
-    <div class=""></div>
-    <div class=""></div>
-    <div class=""></div>
-    <div class=""></div>
-    <div class=""></div>
-  </main>
+  <div class="float-left"></div>
+  <div class="float-left"></div>
+  <div class="float-left"></div>
+  <div class="float-left clear-float"></div>
+  <div class="float-left"></div>
+  <div class="float-left clear-float"></div>
+  <div class="float-right "></div>
+  <div class="float-right clear-float"></div>
+  <div class="float-right "></div>
+  <div class="float-right clear-float"></div>
+  <div class="float-right "></div>
+  <div class="float-right "></div>
 </body>
 
 </html>
