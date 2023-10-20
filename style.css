@@ -12,6 +12,27 @@
   --text-secondary: #c6c7d0;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green-primary); 
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +67,7 @@ body {
   background-color: var(--dark-secondary);
   border-radius: 10px;
   padding: 3rem;
+  overflow: auto;
 }
 
 form {

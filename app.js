@@ -3,8 +3,8 @@ const exerciciesList = document.querySelector(".exercicies-list");
 
 function handleTerminalCommand(event) {
   event.preventDefault();
-  const command = event.target.inputText.value.trim()
-  
+  const command = event.target.inputText.value.trim();
+
   if("ls" === command) {
     listAllExcercicies();
     createNewForm();
