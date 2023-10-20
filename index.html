@@ -1,36 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <link rel="shortcut icon" href="./assets/bash_logo.png" type="image/x-icon">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atividades Despertar.Dev</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>Welcome :)</title>
 
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body id="index-body">
-  <header id="main-header">
-    <a href="./index.html">HOME</a>
+<body>
+  <header id="header">
+    <h1>Welcome</h1>
   </header>
-  <main id="main-page">
-    <h1 id="main-title">Atividades Práticas</h1>
-    <ul id="card-container">
-      <li class="card">
-        <h2>Tabelas HTML</h2>
-        <i class="ph-bold ph-table icons"></i>
-        <a class="link" href="./tabelas-html/exercicio1.html"></a>
-      </li>
-      <li class="card">
-        <h2>Portifólio Github</h2>
-        <i class="ph-bold ph-github-logo icons"></i>
-        <a class="link" href="https://github.com/brunojuwer/brunojuwer" target="_blank"></a>
-      </li>
-      <li class="card">
-        <h2>Posicionamento CSS</h2>
-        <i class="ph-bold ph-file-css icons"></i>
-        <a class="link" href="./pocisionamento-css/exercicio1.html"></a>
-      </li>
-    </ul>
+  <main id="main">
+    <form 
+      class="prompt-form" 
+      autocomplete="off"
+      onsubmit="handleTerminalCommand(event)"
+    >
+      <p>➜</p>
+      <input name="inputText" type="text" autofocus autocomplete="off">
+    </form>
   </main>
+  <script src="exercicies.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
