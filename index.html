@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome :)</title>
 
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,6 +28,35 @@
       <input name="inputText" type="text" autofocus autocomplete="off">
     </form>
   </main>
+  <div id="modal-overlay">
+      <div id="pop-up">
+          <i class="ph-bold ph-x" onclick="handleToggleHelp('none')"></i>
+          <h1>Como utilizar o Web Bash</h1>
+          <div>
+            <p>- Para listar os exercícios:</p>
+            <div class="code-example">
+              <span class="arrow">➜</span>
+              <span>ls</span>
+            </div>
+          </div>
+          <div>
+            <p>- Para limpar o terminal:</p>
+            <div class="code-example">
+              <span class="arrow">➜</span>
+              <span>clear</span>
+            </div>
+          </div>
+          <div>
+            <p>- Para abrir um exercício:</p>
+            <div class="code-example">
+              <span class="arrow">➜</span>
+              <span>visit nome-do-exercicio</span>
+            </div>
+          </div>
+      </div>
+  </div>
+  <button id="help-button" onclick="handleToggleHelp('block')">Help?</button>
+
   <script src="exercicies.js"></script>
   <script src="app.js"></script>
 </body>

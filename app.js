@@ -69,3 +69,12 @@ function removeFormListner() {
 function inputFocus() {
   document.querySelector('input').focus();
 }
+
+function handleToggleHelp(display) {
+  document.querySelector("#modal-overlay").style = `display: ${display}`;
+  inputFocus();
+}
+
+window.addEventListener('keydown', (event) => {
+  if(event.code === "Escape") handleToggleHelp("none");
+});
