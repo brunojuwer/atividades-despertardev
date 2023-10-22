@@ -1,26 +1,6 @@
 const main = document.querySelector("#main");
 const exerciciesList = document.querySelector(".exercicies-list");
 
-function handleTerminalCommand(event) {
-  event.preventDefault();
-  const command = event.target.inputText.value.trim();
-
-  if("ls" === command) {
-    listAllExcercicies();
-    createNewForm();
-  }
-  if("clear" === command) {
-    clearTerminal()
-  }
-  if(command.startsWith("visit")) {
-    visitPage(command.replace("visit ", ""));
-  }
-  if("help" === command) handleToggleHelp('block');
-
-  event.target.reset();
-  inputFocus();
-}
-
 function visitPage(name) {
   exercicies.forEach(ex => {
     if(ex.name === name.trim()) {
@@ -49,6 +29,7 @@ function listAllExcercicies() {
     ul.appendChild(li);
   })
   main.appendChild(ul);
+  createNewForm();
 }
 
 function createNewForm() {
@@ -72,11 +53,36 @@ function inputFocus() {
   document.querySelector('input').focus();
 }
 
-function handleToggleHelp(display) {
-  document.querySelector("#modal-overlay").style = `display: ${display}`;
+let openModal = false;
+function handleToggleHelp() {
+  openModal = !openModal
+  document.querySelector("#modal-overlay").style = openModal ? "display: block" : "display: none";
+  inputFocus();
+}
+
+function handleTerminalCommand(event) {
+  event.preventDefault();
+  const command = event.target.inputText.value.trim();
+
+  if(command.startsWith("visit")) {
+    visitPage(command.replace("visit ", ""));
+  }
+
+  const commands = {
+    "ls": listAllExcercicies,
+    "clear": clearTerminal,
+    "help": handleToggleHelp,
+  }
+
+  commands[command]();
+
+  event.target.reset();
   inputFocus();
 }
 
 window.addEventListener('keydown', (event) => {
-  if(event.code === "Escape") handleToggleHelp("none");
+  if(event.code === "Escape"){
+    openModal = true;
+    handleToggleHelp();
+  };
 });
