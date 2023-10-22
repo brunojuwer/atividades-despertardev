@@ -15,6 +15,8 @@ function handleTerminalCommand(event) {
   if(command.startsWith("visit")) {
     visitPage(command.replace("visit ", ""));
   }
+  if("help" === command) handleToggleHelp('block');
+
   event.target.reset();
   inputFocus();
 }
