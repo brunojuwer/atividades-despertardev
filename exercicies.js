@@ -15,4 +15,8 @@ const exercicies = [
     name: 'Prática JS 1',
     link: './js-pratica01/index.html'
   },
+  {
+    name: 'Prática JS 2',
+    link: './js-pratica02/index.html'
+  },
 ]
