@@ -19,4 +19,8 @@ const exercicies = [
     name: 'Prática JS 2',
     link: './js-pratica02/index.html'
   },
+  {
+    name: 'Prática JS 3 - Loops',
+    link: './js-pratica03-loops/index.html'
+  },
 ]

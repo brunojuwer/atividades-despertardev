@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --dark-primary: #171923;
+  --dark-primary: #242424;
   --dark-secondary: #14161E;
+  --dark-third: #3f3e3e;
   --cards-color: #252A37;
 
   --green-primary: #40c762;
@@ -26,7 +27,7 @@
 }
 
 #main-header {
-  background-color: var(--dark-secondary);
+  background-color: var(--dark-primary);
   padding: 2rem;
   text-align: center;
 }
@@ -35,7 +36,7 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 1.2rem;
-  color: var(--red-primary);
+  color: var(--green-primary);
 }
 
 #main-header a:hover {
