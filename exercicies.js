@@ -23,4 +23,16 @@ const exercicies = [
     name: 'Prática JS 3 - Loops',
     link: './js-pratica03-loops/index.html'
   },
+  {
+    name: 'Prática JS 3 - Loops',
+    link: './js-pratica03-loops/index.html'
+  },
+  {
+    name: 'Prática JS 4 - Ilhas Growdev',
+    link: './js-pratica04-ilhas-growdev/index.html'
+  },
+  {
+    name: 'Prática JS 5 - Loops e condicionais',
+    link: './js-praticas05-loops-condicionais/index.html'
+  },
 ]
