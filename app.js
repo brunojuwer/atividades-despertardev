@@ -23,9 +23,9 @@ function clearTerminal() {
 function listAllExcercicies() {
   const ul = document.createElement('ul');
   ul.classList.add('exercicies-list')
-  exercicies.forEach(exercicie => {
+  exercicies.forEach((exercicie, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `<li><a class="exercicie" href="${exercicie.link}" target="_blank">${exercicie.name}</a></li>`;
+    li.innerHTML = `<li><a class="exercicie" href="${exercicie.link}" target="_blank">${index + 1} - ${exercicie.name}</a></li>`;
     ul.appendChild(li);
   })
   main.appendChild(ul);

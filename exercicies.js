@@ -35,4 +35,12 @@ const exercicies = [
     name: 'Prática JS 6 - Loops e condicionais 2',
     link: './js-praticas06-loops-condicionais-2/index.html'
   },
+  {
+    name: 'Atividade prática 07 - Arrays 1',
+    link: './js-pratica07-arrays-1/index.html'
+  },
+  {
+    name: 'Atividade prática 08 - Arrays 2',
+    link: './js-pratica08-arrays-2/index.html'
+  },
 ]
