@@ -44,7 +44,15 @@ const exercicies = [
     link: './js-pratica08-arrays-2/index.html'
   },
   {
-    name: 'Atividade prática 09 - Objetos e arrays',
+    name: 'Atividade prática 09 - Objetos e arrays 1',
     link: './js-pratica09-objetos-1/index.html'
+  },
+  {
+    name: 'Atividade prática 10 - Objetos e arrays 2',
+    link: './js-pratica10-objetos-arrays/index.html'
+  },
+  {
+    name: 'Atividade prática 11 - Funções 1',
+    link: './js-pratica11-functions01/index.html'
   },
 ]

@@ -1,9 +1,9 @@
 const main = document.querySelector("#main");
 const exerciciesList = document.querySelector(".exercicies-list");
 
-function visitPage(name) {
-  exercicies.forEach(ex => {
-    if(ex.name === name.trim()) {
+function visitPage(number) {
+  exercicies.forEach((ex, index) => {
+    if(index + 1 == number.trim()) {
       window.open(ex.link, "_blank");
     }
   })
