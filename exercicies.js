@@ -55,4 +55,8 @@ const exercicies = [
     name: 'Atividade prática 11 - Funções 1',
     link: './js-pratica11-functions01/index.html'
   },
+  {
+    name: 'Atividade prática 12 - Arrays, objetos e funções',
+    link: './js-pratica12-arrays-objetos-funcoes01/index.html'
+  },
 ]
