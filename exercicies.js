@@ -59,4 +59,8 @@ const exercicies = [
     name: 'Atividade prática 12 - Arrays, objetos e funções',
     link: './js-pratica12-arrays-objetos-funcoes01/index.html'
   },
+  {
+    name: 'Atividade prática 13 - CRUD de carros',
+    link: './js-pratica13-arrays-objetos-funcoes-crud-carros/index.html'
+  },
 ]
