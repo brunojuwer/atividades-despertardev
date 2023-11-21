@@ -63,4 +63,8 @@ const exercicies = [
     name: 'Atividade prática 13 - CRUD de carros',
     link: './js-pratica13-arrays-objetos-funcoes-crud-carros/index.html'
   },
+  {
+    name: 'A Padaria do Sr. João',
+    link: './js-pratica14-padaria-joao/index.html'
+  },
 ]
