@@ -57,7 +57,7 @@ const listarProdutos = () => {
 
     if(ordemPor.toUpperCase() === "A") {
         return [...produtos]
-          .sort((a, b) => a.nome > b.nome)
+          .sort()
           .reduce((acc, item) => {
           return acc + `ID: ${item.id} | NOME: ${item.nome} | ESTOQUE: ${item.estoque} | PREÇO: ${item.preco} \n`
       }, "Listagem por ordem alfabética: \n");
