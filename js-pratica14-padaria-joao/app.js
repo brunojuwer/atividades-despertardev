@@ -165,7 +165,7 @@ const gerarRelatorio = () => {
   const timestampAte = new Date(`${ateMes}/${ateDia}/${ateAno}`).getTime();
 
   const pedidosFiltradosPorData = pedidos.filter(item => {
-    if(item.dataDoPedido >= timestampAPartir && item.dataDoPedido <= timestampAte) return item;
+     return item.dataDoPedido >= timestampAPartir && item.dataDoPedido <= timestampAte;
   })
 
   const sum = pedidosFiltradosPorData.reduce((acc, item) => {
