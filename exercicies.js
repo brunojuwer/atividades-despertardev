@@ -67,4 +67,8 @@ const exercicies = [
     name: 'A Padaria do Sr. João',
     link: './js-pratica14-padaria-joao/index.html'
   },
+  {
+    name: 'Atividade explorando o sistema solar',
+    link: './js-atividade-explorando-o-sistema-solar/index.html'
+  },
 ]

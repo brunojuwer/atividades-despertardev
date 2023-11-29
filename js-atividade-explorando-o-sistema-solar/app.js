@@ -47,10 +47,25 @@ async function getBodies(){
     temperatureFilter(planets);
 
     // 13
-    separateAstros(bodies);
+    const separetedAstros = separateAstros(bodies);
 
     // 14
+    complexSort(separetedAstros);
 
+    // 15
+    findOrbitedPlanets(planets);
+
+    // 16
+    planetsMassAverage(planets);
+
+    // 17
+    distanceBetweenSaturnAndPluto(bodies);
+
+    // 18 
+    planetsWithMoons(planets);
+
+    // 19
+    dataManipulationAndCalculus(planets);
 }
 
 getBodies()
@@ -125,7 +140,7 @@ function orderAndDiscovery(bodies) {
       ({englishName, discoveryDate}))
     .filter(planet => planet.discoveryDate !== "")
     .sort((planet1, planet2) =>
-      new Date(planet1.discoveryDate).getTime() - new Date(planet2.discoveryDate).getTime());
+      new Date(planet1.discoveryDate.split("/").reverse().join("-")).getTime() - new Date(planet2.discoveryDate.split("/").reverse().join("-")).getTime());
     console.log(newBodies)
 }
 
@@ -159,4 +174,83 @@ function separateAstros(bodies) {
     return acc;
   }, {})
   console.log(newObj)
+  return newObj;
+}
+
+function complexSort(bodies) {
+  console.log("Ordenação complexa")
+  let astros = {...bodies};
+  for (const key in astros) {
+    astros[key]
+      .sort((a, b) => b.meanRadius - a.meanRadius)
+    astros[key] = astros[key].slice(0, 3);
+  }
+  console.log(astros)
+}
+
+function findOrbitedPlanets(planets) {
+  console.log("Econtre Planetas orbitados");
+  const filtered = planets.filter(planet => planet.moons)
+  filtered.forEach(planet => {
+    console.log(planet.englishName, planet.moons)
+  })
+}
+
+function planetsMassAverage(planets) {
+  const planetsMassAverage = planets
+    .reduce((acc, {mass}) => 
+      acc + calcPlanetMass(mass) ,0) 
+      / planets.length
+    console.log(planetsMassAverage);
+}
+
+function distanceBetweenSaturnAndPluto(bodies) {
+  console.log("Distância entre Saturno e Plutão")
+  const plutao = bodies.find(body => body.englishName === 'Pluto')
+  const saturn = bodies.find(body => body.englishName === 'Saturn')
+
+  const sum = plutao.perihelion - saturn.aphelion;
+  console.log(sum);
+}
+
+function planetsWithMoons(planets) {
+  console.log("Planetas com Luas:");
+  const filtered = planets.filter(planet => planet.moons);
+  filtered.forEach(planet => {
+    console.log(`Nome do planeta: ${planet.englishName} | Quantidade de luas: ${planet.moons.length}`)
+  });
+}
+
+function dataManipulationAndCalculus(planets){
+  console.log("Desafio final");
+  const justPlanetsMass = planets
+    .map(({mass}) => calcPlanetMass(mass))
+    .sort();
+
+  let mediana = 0
+  const isEvenLength = justPlanetsMass.length % 2 === 0;
+  if(isEvenLength) {
+    const middleItem1 = justPlanetsMass[justPlanetsMass.length / 2 - 1];
+    const middleItem2 = justPlanetsMass[justPlanetsMass.length / 2];
+    mediana = ( middleItem1 + middleItem2 ) / 2;
+    console.log("Mediana com array par: ", mediana);
+
+  } else {
+    mediana = justPlanetsMass[justPlanetsMass.length / 2 - 0.5];
+    console.log("Mediana com array ímpar: ", mediana);
+  }
+
+  const planetWithClosestMassToMediana = planets.reduce((acc, planet) => {
+    const planetMass = calcPlanetMass(planet.mass)
+    if(planetMass < Math.abs(calcPlanetMass(acc.mass) - mediana)) {
+      acc = planet
+    }
+    return acc;
+  });
+
+  console.log("Planeta com massa mais perto da mediana", planetWithClosestMassToMediana);
+}
+
+function calcPlanetMass(mass){
+  return mass.massValue * Math.pow(10, mass.massExponent);
 }
