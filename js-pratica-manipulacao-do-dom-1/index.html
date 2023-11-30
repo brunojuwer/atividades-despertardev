@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulação do DOM #1</title>
+  <link rel="stylesheet" href="../default.css">
+</head>
+<body>
+  <header id="main-header">
+    <a href="../index.html">HOME</a>
+  </header>
+  <div style="text-align: center;">
+    <h2>Exercicio 1</h2>
+    <button>CLIQUE AQUI PARA MUDAR O TEXTO</button>
+    <p>AQUI VAI APARECER ALGUMA COISA...</p>
+  </div>
+  <hr>
+  <div style="text-align: center;">
+    <h2>Exercicio 2</h2>
+    <h3>Contador de Cliques</h3>
+    <button onclick="increment()">Incrementar +</button>
+    <button onclick="resetCounter()">Zerar contador</button>
+    <p>O contador está com <span id="counter">0</span> cliques</p>
+  </div>
+  <hr>
+  <script src="app.js"></script>
+</body>
+</html>

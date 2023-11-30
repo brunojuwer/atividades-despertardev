@@ -71,4 +71,12 @@ const exercicies = [
     name: 'Atividade explorando o sistema solar',
     link: './js-atividade-explorando-o-sistema-solar/index.html'
   },
+  {
+    name: 'Manipulação de DOM 1',
+    link: './js-pratica-manipulacao-do-dom-1/index.html'
+  },
+  {
+    name: 'Manipulação de DOM 2',
+    link: './js-pratica-manipulacao-do-dom-2/index.html'
+  },
 ]
