@@ -9,7 +9,7 @@ cards.forEach(elemet => {
 const descricoesCard = document.querySelectorAll(".descricao-card");
 
 descricoesCard.forEach(elemet => {
-  elemet.style = "color: white; margin-bottom: 2rem"
+  elemet.style = "color: white; margin-bottom: 2rem; font-size: 0.875rem;"
   elemet.innerText = "Descrição alterada pelo JavaScript"
 })
 
