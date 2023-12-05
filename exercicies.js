@@ -79,4 +79,8 @@ const exercicies = [
     name: 'Manipulação de DOM 2',
     link: './js-pratica-manipulacao-do-dom-2/index.html'
   },
+  {
+    name: 'Manipulação de DOM 3 - Calculos',
+    link: './js-pratica16-dom-events/index.html'
+  },
 ]
