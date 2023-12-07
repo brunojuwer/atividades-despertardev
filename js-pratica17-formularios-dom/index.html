@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulários e Manipulação do DOM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Formulário</h1>
+  </header>
+  <main>
+    <form>
+      <fieldset>
+        <legend>Dados pessoais</legend>
+        <div>
+          <label for="nome">Nome</label>
+          <input required id="nome" type="text">
+        </div>
+        <div>
+          <label for="endereco">Endereço</label>
+          <input required id="endereco" type="text">
+        </div>
+        <div>
+          <label for="cidade">Cidade</label>
+          <input required id="cidade" type="text">
+        </div>
+        <div>
+          <label for="estados">Estados:</label>
+          <select required name="estados" id="estados">
+            <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+            <option value="Santa Catarina">Santa Catarina</option>
+            <option value="Paraná">Paraná</option>
+            <option value="São Paulo">São Paulo</option>
+          </select>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Dados profissionais</legend>
+        <div>
+          <p>Natureza do cargo</p>
+        </div>
+        <div id="role-container">
+          <input value="Gerência" checked required name="role" id="gerencia" type="radio">
+          <label name="role" for="gerencia">Gerência</label>
+          <input value="Financeiro" required name="role" id="financeiro" type="radio">
+          <label name="role" for="financeiro">Financeiro</label>
+          <input value="Recepção" required name="role" id="recepcao" type="radio">
+          <label name="role" for="recepcao">Recepção</label>
+          <input value="Administrativo" required name="role" id="administrativo" type="radio">
+          <label name="role" for="administrativo">Administrativo</label>
+          <input value="Juridico" required name="role" id="juridico" type="radio">
+          <label name="role" for="juridico">Juridico</label>
+        </div>
+        <div>
+          <p>Área de interesse</p>
+          <div>
+            <input data-js id="computacao" type="checkbox" value="Computação">
+            <label data-js for="computacao">Computação</label>
+            <input data-js id="biologia" type="checkbox" value="Biologia">
+            <label data-js for="biologia">Biologia</label>
+            <input data-js id="meioAmbiente" type="checkbox" value="Meio Ambiente">
+            <label data-js for="meioAmbiente">Meio Ambiente</label>
+            <input data-js id="engenharia" type="checkbox" value="Engenharia">
+            <label data-js for="engenharia">Engenharia</label>
+            <input data-js id="historia" type="checkbox" value="História">
+            <label data-js for="historia">História</label>
+          </div>
+          <label id="curriculo" for="miniCurriculo">Mini-currículo:</label>
+          <textarea name="mini-curriculo" id="miniCurriculo" cols="30" rows="10"></textarea>
+        </div>
+      </fieldset>
+      <button type="submit">Enviar</button>
+      <button id="clearForm" type="button">Limpar</button>
+    </form>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
