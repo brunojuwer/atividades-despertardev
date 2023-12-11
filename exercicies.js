@@ -87,4 +87,8 @@ const exercicies = [
     name: 'Formulários DOM',
     link: './js-pratica17-formularios-dom/index.html'
   },
+  {
+    name: 'Form Cadastro',
+    link: './pratica-form-login/cadastro/cadastro.html'
+  },
 ]
