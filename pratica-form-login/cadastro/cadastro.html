@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Cadastro</title>
+</head>
+<body>
+  <form class="container">
+    <span>Cadastrar usuário</span>
+
+    <div class="input-field">
+      <input class="form-control" onkeyup="changeBorder(event)" type="text" id="cadastroNomeCompleto" placeholder=" "> <label for="">Nome e sobrenome</label>
+    </div>
+    <div class="input-field">
+      <input class="form-control" onkeyup="changeBorder(event)" type="email" id="cadastroEmail" placeholder=" "> <label for="">E-mail</label>
+    </div>
+    <div class="input-field">
+      <input class="form-control" onkeyup="changeBorder(event)" type="password" id="cadastroSenha" placeholder=" "> <label for="">Senha</label>
+    </div>
+    <div class="input-field">
+      <input class="form-control" onkeyup="changeBorder(event)" type="password" id="cadastroSenhaConfirmacao" placeholder=" "> <label for="">Confirme a senha</label>
+    </div>
+
+    <button type="submit">Criar</button>
+
+    <div class="create-account-field">
+      <p>Já tem uma conta?<a href="../login/login.html">Login</a></p>
+    </div>
+  </form>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./cadastro.js"></script>
+</body>
+</html>

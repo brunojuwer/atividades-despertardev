@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font-family: DM Sans;
+}
+
+.container {
+  width: 30rem;
+}
+
+.header {
+  width: 100%;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.header .logo {
+  margin-bottom: 4rem;
+}
+
+.header .title {
+  color: #212529;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 1rem;
+}
+
+.header .subtitle {
+  color: #495057;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.5px;
+}
+
+#createButton {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 2px transparent solid;
+  background-color: #50e1e6;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#createButton:hover {
+  border: 2px #67a8aa solid;
+}
+
+/* Estilos dos cards de recado */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleContainer button {
+  background-color: #419f48;
+  color: #fefefe;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.descriptionContainer {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.descriptionContainer i {
+  color: #000;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#deleteButton {
+  background-color: red;
+  color: #fefefe;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#updateButton {
+  background-color: #bbb144;
+  color: #fefefe;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttonContainer {
+  margin-top: 0.8rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  color: #212529;
+  margin: 0;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.cardDescription {
+  width: 100%;
+  font-size: 1rem;
+  color: #495057;
+  margin-top: 10px;
+  border: none;
+  outline: none
+}
+
+.input-border-focus {
+  border-bottom: 1px solid #000;
+}
+
+.modal {
+  display: none;
+}
+
+.modal-open {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-color: #495057;
+}
+
+.modal-open form {
+  width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.close-button {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+/* Modal Styling */
+.modal-open {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-open form {
+  position: relative;
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 70%;
+  max-width: 500px;
+}
+
+.modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-container input[type="text"] {
+  width: calc(100% - 12px);
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button[type="submit"] {
+  background-color: #86df89;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #86df89;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+.close-button:hover {
+  color: #333;
+}
