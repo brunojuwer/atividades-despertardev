@@ -17,18 +17,39 @@ document.querySelector("form").addEventListener('submit', e => {
 })
 
 async function createRecado() {
-    await axios.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes", {
-      title: recadoTitle.value,
-      description: recadoDescription.value,
-    });
+  if(!recadoTitle.value) {
+    alert("Titulo não pode estar em branco");
+    return;
+  }
+  if(!recadoDescription.value) {
+    alert("Descrição não pode estar em branco");
+    return;
+  }
+
+  await axios.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes", {
+    title: recadoTitle.value,
+    description: recadoDescription.value,
+  });
   location.reload();
 }
 
 async function updateRecado(id, idTitle, idDescription) {
-    await axios.put(`https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes/${id}`, {
-      title: fields.title === "" ? document.getElementById(idTitle).value : fields.title,
-      description: fields.description === "" ? document.getElementById(idDescription).value : fields.description
-    });
+  const title = document.getElementById(idTitle).value;
+  const description = document.getElementById(idDescription).value
+
+  if(!title) {
+    alert("Titulo não pode estar em branco");
+    return;
+  }
+  if(!description) {
+    alert("Descrição não pode estar em branco");
+    return;
+  }
+
+  await axios.put(`https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes/${id}`, {
+    title: fields.title === "" ? title : fields.title,
+    description: fields.description === "" ? description : fields.description
+  });
 
   fields.title = ""
   fields.description = ""
@@ -64,11 +85,11 @@ async function addCardsToContainer() {
     cardContainer.innerHTML += `
     <div class="card">
       <div class="titleContainer">
-        <input disabled id="${element.id}" class="cardTitle" onkeyup="updateTitle(${element.id})" value="${element.title}">
+        <input disabled onblur="removeFocus(${element.id})" id="${element.id}" class="cardTitle" onkeyup="updateTitle(${element.id})" value="${element.title}">
         <i class="ph ph-pen" onclick="editField(${element.id})"></i>
       </div>
       <div class="descriptionContainer">
-        <input disabled id="${element.id + "1"}" class="cardDescription" onkeyup="updateDescription(${element.id + "1"})" value="${element.description}">
+        <input disabled onblur="removeFocus(${element.id + '1'})" id="${element.id + "1"}" class="cardDescription" onkeyup="updateDescription(${element.id + "1"})" value="${element.description}">
         <i class="ph ph-pen" onclick="editField(${element.id + "1"})"></i>
       </div>
       <div class="buttonContainer">
@@ -101,9 +122,13 @@ function closeModal() {
 function editField(id) {
   document.getElementById(id).removeAttribute("disabled");
   document.getElementById(id).focus();
+  let val = document.getElementById(id).value
+  document.getElementById(id).value = "";
+  document.getElementById(id).value = val;
   document.getElementById(id).classList.add("input-border-focus");
 }
 
-function handleLogOut() {
-  location.href = './login/login.html';
+function removeFocus(id) {
+  document.getElementById(id).setAttribute("disabled", "");
+  document.getElementById(id).classList.remove("input-border-focus");
 }

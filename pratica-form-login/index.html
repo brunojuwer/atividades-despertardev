@@ -14,19 +14,22 @@
 </head>
 
 <body>
+  <header class="header">
+    <div class="user-section">
+      <p class="user-greet">Usuário logado: <span id="userName"></span></p>
+      <button class="logout-button" onclick="handleLogOut()">Logout</button>
+    </div>
+  </header>
   <div class="container">
-    <header class="header">
-      <div>
-        <button onclick="handleLogOut()">Logout</button>
-      </div>
-      <img class="logo" src="./images/logo.svg" alt="logo de recados">
-
-      <h1 class="title">Lista de Recados</h1>
-      <h2 class="subtitle">Todos os meus recados</h2>
-      <button id="createButton" onclick="openModal()">Adicionar novo recado</button>
-    </header>
-
+    
     <main>
+      <section class="create-recado-section">
+        <img class="logo" src="./images/logo.svg" alt="logo de recados">
+        <h1 class="title">Lista de Recados</h1>
+        <h2 class="subtitle">Todos os meus recados</h2>
+        <button id="createButton" onclick="openModal()">Adicionar novo recado</button>
+      </section>
+
       <div class="messages-list">
       </div>
     </main>
@@ -47,8 +50,8 @@
     </form>
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="api.js"></script>
   <script src="app.js"></script>
+  <script src="user/app.js"></script>
 </body>
 
 </html>
