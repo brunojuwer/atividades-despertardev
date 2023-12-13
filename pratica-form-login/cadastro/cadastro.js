@@ -40,12 +40,10 @@ function validatePassword(password, passwordConfirmation) {
 async function createUser(userData) {
   try {
     const response = await axios
-    .post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/users", userData); 
-
-    localStorage.setItem("user_data", JSON.stringify(response.data));
+      .post("http://localhost:3000/users/signup", userData); 
 
     alert("Usuário cadastrado com sucesso!");
-    location.href = "../index.html"
+    location.href = "../login/login.html"
   } catch(error) {
     alert("Ocorreu um erro inesperado ",)
   }
@@ -89,9 +87,8 @@ document.querySelector(".container").addEventListener("submit", e => {
 
   const userData = {
     name,
-    login: email,
+    email,
     password,
-    avatar: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/34.jpg"
   }
 
   createUser(userData);

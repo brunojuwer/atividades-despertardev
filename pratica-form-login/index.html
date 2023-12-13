@@ -32,6 +32,11 @@
 
       <div class="messages-list">
       </div>
+      <div class="pagination">
+        <button id="prevPage">Anterior</button>
+        <div id="pageNumbers"></div>
+        <button id="nextPage">Próxima</button>
+      </div>
     </main>
   </div>
   <div id="modalContainer" class="modal">
@@ -49,9 +54,10 @@
       <p class="close-button" onclick="closeModal()">X</p>
     </form>
   </div>
+
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="app.js"></script>
+  <script src="./api.js"></script>
+  <script src="./app.js"></script>
   <script src="user/app.js"></script>
 </body>
-
 </html>

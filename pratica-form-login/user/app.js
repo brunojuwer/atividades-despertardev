@@ -1,7 +1,5 @@
 const loggedUserName = JSON.parse(localStorage.getItem('user_data'));
 
-console.log(loggedUserName);
-
 if(!loggedUserName) {
   console.log("asdsad");
   location.href = "./login/login.html";

@@ -249,7 +249,7 @@ textarea {
 }
 
 button[type="submit"] {
-  background-color: #86df89;
+  background-color: #419f48;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -274,4 +274,30 @@ button[type="submit"]:hover {
 
 .close-button:hover {
   color: #333;
+}
+
+/* Estilo para a div de paginação */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 3rem;
+}
+
+/* Estilo para os botões de página */
+.pagination button {
+  background-color: #08757f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Estilo para o botão de página ativa */
+.pagination button.active {
+  background-color: #0a936a;
 }

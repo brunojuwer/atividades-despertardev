@@ -1,6 +1,6 @@
-async function getAllRecados() {
+async function getAllRecados(userId, params) {
   try {
-    return await axios.get("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes");
+    return await axios.get(`http://localhost:3000/notes/${userId}`, {params});
   } catch(error) {
     alert("Ocorreu um erro na requisição da API");
   }
@@ -16,6 +16,10 @@ document.querySelector("form").addEventListener('submit', e => {
   createRecado()
 })
 
+function getUserId() {
+  return JSON.parse(localStorage.getItem("user_data")).userId;
+}
+
 async function createRecado() {
   if(!recadoTitle.value) {
     alert("Titulo não pode estar em branco");
@@ -26,9 +30,12 @@ async function createRecado() {
     return;
   }
 
-  await axios.post("https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes", {
+  const userId = getUserId();
+  
+  await axios.post("http://localhost:3000/notes/", {
     title: recadoTitle.value,
     description: recadoDescription.value,
+    userId
   });
   location.reload();
 }
@@ -46,20 +53,24 @@ async function updateRecado(id, idTitle, idDescription) {
     return;
   }
 
-  await axios.put(`https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes/${id}`, {
-    title: fields.title === "" ? title : fields.title,
-    description: fields.description === "" ? description : fields.description
-  });
+  try {
 
-  fields.title = ""
-  fields.description = ""
-
-  location.reload();
+    await axios.put(`http://localhost:3000/notes/${id}`, {
+      title: fields.title === "" ? title : fields.title,
+      description: fields.description === "" ? description : fields.description
+    });
+    
+    fields.title = ""
+    fields.description = ""
+    
+    location.reload();
+  } catch(error) {
+    alert("Ocorreu um erro ao atualizar")
+  }
 }
 
 async function deleteRecado(id){
-  const response = await axios
-    .delete(`https://65089a2a56db83a34d9c8c86.mockapi.io/api/v1/notes/${id}`);
+  const response = await axios.delete(`http://localhost:3000/notes/${id}`);
 
     if(response.status === 200) {
       alert("Recado apagado com sucesso!");
@@ -68,9 +79,22 @@ async function deleteRecado(id){
 }
 
 const cardContainer = document.querySelector(".messages-list");
+const prevPage = document.getElementById('prevPage')
+const nextPage = document.getElementById('nextPage')
 
-async function addCardsToContainer() {
-  const recados = (await getAllRecados()).data
+let currentPage = 1
+let totalPages = 1
+
+async function addCardsToContainer(page) {
+  const userId = getUserId();
+  const params = {
+    page,
+    perPage: 3
+  }
+  const response = await getAllRecados(userId, params)
+  const recados = response.data.userMessages
+
+  totalPages = response.data.totalPages;
 
   if(recados.length === 0) {
     cardContainer.innerHTML = `
@@ -80,21 +104,21 @@ async function addCardsToContainer() {
     `
     return;
   }
-
+  cardContainer.innerHTML = "";
   recados.forEach(element => {
     cardContainer.innerHTML += `
     <div class="card">
       <div class="titleContainer">
-        <input disabled onblur="removeFocus(${element.id})" id="${element.id}" class="cardTitle" onkeyup="updateTitle(${element.id})" value="${element.title}">
-        <i class="ph ph-pen" onclick="editField(${element.id})"></i>
+        <input disabled onblur="removeFocus('${element.id}')" id="${element.id}" class="cardTitle" onkeyup="updateTitle('${element.id}')" value="${element.title}">
+        <i class="ph ph-pen" onclick="editField('${element.id}')"></i>
       </div>
       <div class="descriptionContainer">
-        <input disabled onblur="removeFocus(${element.id + '1'})" id="${element.id + "1"}" class="cardDescription" onkeyup="updateDescription(${element.id + "1"})" value="${element.description}">
-        <i class="ph ph-pen" onclick="editField(${element.id + "1"})"></i>
+        <input disabled onblur="removeFocus('${element.id + '1'}')" id="${element.id + "1"}" class="cardDescription" onkeyup="updateDescription('${element.id + "1"}')" value="${element.description}">
+        <i class="ph ph-pen" onclick="editField('${element.id + "1"}')"></i>
       </div>
       <div class="buttonContainer">
-        <button id="deleteButton" onclick="deleteRecado(${element.id})">Deletar</button>
-        <button id="updateButton" onclick="updateRecado(${element.id}, ${element.id}, ${element.id + "1"})">Atualizar</button>
+        <button id="deleteButton" onclick="deleteRecado('${element.id}')">Deletar</button>
+        <button id="updateButton" onclick="updateRecado('${element.id}', '${element.id}', '${element.id + "1"}')">Atualizar</button>
       </div>
     </div>
     `;
@@ -132,3 +156,17 @@ function removeFocus(id) {
   document.getElementById(id).setAttribute("disabled", "");
   document.getElementById(id).classList.remove("input-border-focus");
 }
+
+prevPage.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--
+    addCardsToContainer(currentPage)
+  }
+})
+
+nextPage.addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    currentPage++;
+    addCardsToContainer(currentPage)
+  }
+})
