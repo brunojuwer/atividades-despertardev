@@ -91,8 +91,8 @@ async function addCardsToContainer(page) {
     page,
     perPage: 3
   }
-  const response = await getAllRecados(userId, params)
-  const recados = response.data.userMessages
+  const response = await getAllRecados(userId, params);
+  const recados = response.data.userMessages;
 
   totalPages = response.data.totalPages;
 
@@ -101,7 +101,7 @@ async function addCardsToContainer(page) {
     <div class="card">
         <h2 class="card-title" style="text-align:center;">Você não possiu nenhum recado!</h2>
     </div>
-    `
+    `;
     return;
   }
   cardContainer.innerHTML = "";
@@ -123,6 +123,19 @@ async function addCardsToContainer(page) {
     </div>
     `;
   });
+  pageNumbers.innerHTML = ""
+  for (let i = 1; i <= totalPages; i++) {
+    if(i === currentPage) {
+      pageNumbers.innerHTML += `<button class="current-page" onclick="getSpecificPage(${i})">${i}</button>`;
+    } else {
+      pageNumbers.innerHTML += `<button onclick="getSpecificPage(${i})">${i}</button>`;
+    }
+  }
+}
+
+function getSpecificPage(page) {
+  currentPage = page;
+  addCardsToContainer(page);
 }
 
 addCardsToContainer()
@@ -161,6 +174,7 @@ prevPage.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--
     addCardsToContainer(currentPage)
+    // pageNumbers.innerText = currentPage;
   }
 })
 
@@ -168,5 +182,7 @@ nextPage.addEventListener('click', () => {
   if (currentPage < totalPages) {
     currentPage++;
     addCardsToContainer(currentPage)
+    // pageNumbers.innerText = currentPage;
   }
 })
+

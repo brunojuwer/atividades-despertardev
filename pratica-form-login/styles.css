@@ -301,3 +301,7 @@ button[type="submit"]:hover {
 .pagination button.active {
   background-color: #0a936a;
 }
+
+.current-page {
+  opacity: 0.5;
+}
