@@ -91,4 +91,8 @@ const exercicies = [
     name: 'Form Cadastro',
     link: './pratica-form-login/cadastro/cadastro.html'
   },
+  {
+    name: 'Flex box 1',
+    link: './flex-box-atividade-1/index.html'
+  },
 ]

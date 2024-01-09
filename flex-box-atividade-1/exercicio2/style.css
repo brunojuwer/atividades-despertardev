@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+}
+
+.container {
+  background-color: gray;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: end;
+}
+
+.square-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  background-color: #f69804;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.square {
+  background-color: #10538e;
+  border: 2px solid black;
+  width: 200px;
+  height: 200px;
+}
+
