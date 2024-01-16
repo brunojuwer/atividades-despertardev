@@ -95,4 +95,8 @@ const exercicies = [
     name: 'Flex box 1',
     link: './flex-box-atividade-1/index.html'
   },
+  {
+    name: 'Bootstrap 1',
+    link: './pratica-bootstrap-1/index.html'
+  },
 ]
