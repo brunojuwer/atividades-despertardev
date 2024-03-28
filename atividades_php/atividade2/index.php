@@ -98,6 +98,23 @@ echo "<br>";
 echo " {$bomba->abastecerPorValor(200.00)} por R$200,00";
 echo "<br>";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 echo "Carro <br>";
 
 require "./Carro.php";
