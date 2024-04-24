@@ -56,10 +56,15 @@ class ProductController extends Controller
         $categories = CacheService::getData('categories');
         $product = $request->attributes->get('product');
 
+        $category = $categories->firstWhere('id', $product->category_id);
+
+        unset($product->category_id);
+        $product->category = $category;
+
         return response()->json([
             'success' => true, 
             'msg' => "Lista do produto.", 
-            'data' => $request->attributes->get('product')
+            'data' => $product
         ]);
     }
 
