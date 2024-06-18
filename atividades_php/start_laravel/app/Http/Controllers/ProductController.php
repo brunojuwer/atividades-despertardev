@@ -8,12 +8,20 @@ use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
+
+    public function __construct(
+        private CacheService $cache
+    )
+    {
+       $this->cache = $cache;
+    }
+
     public function index()
     {
-        $products = CacheService::getData('products');
+        $products = $this->cache->getData();
 
         return response()->json([
-            'success' => true, 
+            'success' => true,
             'msg' => "Listagem de produtos.", 'data' => $products
         ]);
     }
@@ -62,8 +70,8 @@ class ProductController extends Controller
         $product->category = $category;
 
         return response()->json([
-            'success' => true, 
-            'msg' => "Lista do produto.", 
+            'success' => true,
+            'msg' => "Lista do produto.",
             'data' => $product
         ]);
     }
@@ -71,7 +79,7 @@ class ProductController extends Controller
     public function update(Request $request)
     {
         if(collect($request)->has('name', 'price')){
-           
+
             $product = $request->attributes->get('product');
             $products = $request->attributes->get('products');
 

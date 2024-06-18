@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Cache;
 
 class CacheService
 {
+
+    public function __construct(
+        protected string $key
+    )
+    {
+        $this->key = $key;
+    }
+
     public static function getData(string $key): Collection
     {
         $data = Cache::get($key);
